@@ -23,6 +23,6 @@ from hopi_hari_db.lines
  set total_wait = wait_time * line_count;
  
 insert into notifications (description, status, rides_id, users_id)
-values (concat(total_wait, "minutos de espera para o brinquedo"), true,  NEW .id_ride,  NEW .id_user);
+values (concat(total_wait, " minutos de espera para o brinquedo"), true,  NEW .id_ride,  NEW .id_user);
 END $$
 DELIMITER ;	

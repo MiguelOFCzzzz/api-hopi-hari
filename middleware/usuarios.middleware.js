@@ -21,3 +21,20 @@ exports.required = async (req, res, next) => {
         return res.status(500).send({ error });
     }
 };
+
+
+exports.userRequeriment = async (req, res, next) => {
+    try{
+        if (res.locals.admin){
+            return res.status(403).send({
+                "Mensagem": "Usuario sem permissão"
+
+            });
+    }
+    next();
+    }catch (error) {
+        return res.status(500).send({ 
+            "error": error
+         });
+    }
+}

@@ -10,6 +10,7 @@ const notificationsRoute = require("./routes/notifications.route");
 
 
 
+
 app.use(cors());
 app.use(helmet());
 
