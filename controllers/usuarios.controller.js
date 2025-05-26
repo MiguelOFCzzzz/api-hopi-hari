@@ -97,7 +97,14 @@ exports.login = async (req, res) => {
         }, 'senhajwt');
         return res.status(201).send({ 
             "mensagem": "Usuario logado com sucesso!",
-            "token": token
+            "token": token,
+            "user" : {
+                "firstName": usuario[0].first_name,
+                "lastName": usuario[0].last_name,    
+                "email": usuario[0].email,
+                "birthDate": usuario[0].birth_date,
+                "phone": usuario[0].phone
+            }
              });
     }
     catch (error) {
