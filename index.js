@@ -7,7 +7,7 @@ const helmet = require("helmet");
 const usuariosRoute = require("./routes/usuarios.route");
 const filasRoute = require("./routes/filas.route");
 const notificationsRoute = require("./routes/notifications.route");
-
+const brinquedosRoute = require("./routes/brinquedos.route");
 
 
 
@@ -31,6 +31,7 @@ app.use((req, res, next) =>{
 app.use("/usuarios", usuariosRoute);
 app.use("/filas", filasRoute);
 app.use("/notifications", notificationsRoute);
+app.use("/brinquedos", brinquedosRoute);
 
 
 module.exports = app;

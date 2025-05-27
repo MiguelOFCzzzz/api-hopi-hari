@@ -20,3 +20,29 @@ exports.cadastrarBrinquedo = async (req, res, next) => {
         return res.status(500).send({ error });
     }
 }
+
+exports.getBrinquedosByArea = async (req, res, next) => {
+    try {
+       resultados = await mysql.execute(
+            `SELECT * FROM rides WHERE areas_id = (
+            SELECT id FROM areas WHERE name = ?
+            );`,    
+            [req.params.areaName]
+        );
+            if (resultados.length == 0 ) {
+                return res.status(404).send({
+                    "mensagem": "Nenhum brinquedo encontrado para esta área"
+                });
+            }
+
+            return res.status(200).send({
+                "Mensagem": "Brinquedos encontrados com sucesso",
+                "Brinquedos": resultados
+            });
+
+    } catch (error) {
+        return res.status(500).send({ error });
+    }
+}
+        
+   
