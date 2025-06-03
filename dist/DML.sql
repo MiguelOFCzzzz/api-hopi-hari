@@ -9,9 +9,6 @@ ON users.id = `lines`.id_user
 INNER JOIN 	rides 
 on rides.id = `lines`.id_ride
 
-
-
-
 insert into areas (name) VALUES ("Aribabiba");
 insert into areas (name) VALUES ("Mistieri");
 insert into areas (name) VALUES ("Kaminda Mundi");
